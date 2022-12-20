@@ -1,0 +1,124 @@
+.back3 {
+    
+    background-color: rgba(30, 35, 40, 0);
+    
+    padding: 0.1rem;
+    max-width: 1685px;
+    text-align: center;
+    align-items: center;
+    
+    margin-top: 100px;
+    margin-bottom: 0px;
+    padding: 1rem;  
+    
+}
+.close{
+    border: 1px solid rgba(0, 0, 0, 0.438);
+    background-color: rgba(172, 164, 164, 0);
+    
+  }
+.course {
+    border: 0.1rem solid black; 
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    max-width: 50rem;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem; 
+    
+    opacity: 0.9;
+}
+.navTitle{
+    font-weight: bold;
+    
+}
+.navPic{
+
+    border: 0.1rem solid rgb(255, 253, 253); 
+    background-color: white;
+    border-radius: 0.5rem;
+
+}
+.courselist {
+    border: 0.1rem solid black; 
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    max-width: 50rem;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    padding: 1rem;  
+    opacity: 0.9;
+}
+.home1{
+
+    color: white;
+    font-weight: bolder;
+    font-size: 100px;
+
+}
+.home {
+    border: 0.1rem solid black; 
+    background-color: rgba(226, 221, 221, 0.942);
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    max-width: 50rem;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 50px;
+   
+    opacity: 1;
+}
+.btn{
+
+    border: 1px solid rgb(255, 255, 255);
+}
+.btn-lg{
+
+    --bs-btn-border-radius: 10px;
+    
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-border-color: var(--bd-white);
+}
+.transparent {
+    opacity: 0.9;
+}
+
+.middle {
+    left: 0;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(233, 233, 233, 0.144), rgba(255, 255, 255, 0.158)),url("rotunda.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+.close{
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: rgba(172, 164, 164, 0);
+    padding-top: 1px;
+    
+  }
+
+

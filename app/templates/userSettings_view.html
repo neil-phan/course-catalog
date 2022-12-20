@@ -1,0 +1,89 @@
+{% extends 'navbar_footer.html' %}
+{% load static %}
+{%block content%}
+
+<!--/***************************************************************************************
+*  REFERENCES
+*  Title: <Bootstrap snippet. profile edit settings>
+*  Author: <Unknown>
+*  Code version: <Bootstrap 4>
+*  URL: <https://www.bootdey.com/snippets/view/profile-edit-settings/>
+*  Software License: <MIT license>
+*
+***************************************************************************************/
+-->
+<div class="container back3">
+    <div class="row"><div class="col">
+
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+       
+        <div {% if message.tags %}class="alert {{message.tags}} alert-dismissible fade show" {% endif %}role="alert" id="succalert" style="margin-top: 1rem;">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <script type="text/javascript">
+          setTimeout(function () {
+    
+              // Closing the alert
+              $('#succalert').alert('close');
+          }, 3000);
+      </script>
+        {% endfor %}
+      </ul>
+      {% endif %}
+  
+    </div></div>
+  </div>
+<div class="container courselist" style=" text-align: center;">
+    
+        
+            <h1 class="">Update your profile</h1>
+            <h3 class="">(Leave blank as needed)</h3>
+            <div class="row">
+
+                <div class="col-2"></div>
+                
+                <div class="col-8">
+                    <form action="{% url 'user-settings-update' %}" method="post">
+                        {% csrf_token %}
+                    <label for="firstname">Firstname</label>
+                    <input type="text" id="firstname" name = "firstname" class="form-control" placeholder="John" />
+                    {% csrf_token %}
+                    <label for="lastname"style = "margin-top: 20px;">Lastname</label>
+                    <input type="text" id="lastname" name = "lastname" class="form-control" placeholder="Doe" />
+                    {% csrf_token %}
+                    <label for="lastname" style = "margin-top: 20px;">Username</label>
+                    <input type="text" id="lastname" name = "username" class="form-control" placeholder="JDoe123" />
+                    
+                    {% csrf_token %}
+                    <label for="lastname" style = "margin-top: 20px;">Major</label>
+                    <input type="text" id="lastname" name = "major" class="form-control" placeholder="Computer Science" />
+                    {% csrf_token %}
+                    <label for="lastname" style = "margin-top: 20px;">Year (1st, 2nd, 3rd, 4th)</label>
+                    <input type="text" id="lastname" name = "year" class="form-control" placeholder="1st" />
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                        <button type="submit" class="btn btn-dark" style = "margin-top: 20px;">Save Changes</button>
+                    </form>
+                </div>
+                
+                <div class="col-2"></div>
+            </div>
+
+
+          
+        
+    
+    
+    </div>
+
+    {%endblock%}

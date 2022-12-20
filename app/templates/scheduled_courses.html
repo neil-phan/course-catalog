@@ -1,0 +1,148 @@
+{% extends 'navbar_footer.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .back3 {
+    
+    background-color: rgba(30, 35, 40, 0);
+    
+    padding: 0.1rem;
+    max-width: 1685px;
+    text-align: center;
+    align-items: center;
+    
+    margin-top: 100px;
+    margin-bottom: 0px;
+    padding: 1rem;  
+    
+}
+</style>
+<div class="container back3 position-sticky">
+    <div class="row"><div class="col">
+  
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+       
+        <div {% if message.tags %}class="alert {{message.tags}} alert-dismissible fade show" {% endif %}role="alert" id = "succalert">
+          {{ message }}
+          <button  type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+        </div>
+        <script type="text/javascript">
+          setTimeout(function () {
+    
+              // Closing the alert
+              $('#succalert').alert('close');
+          }, 3000);
+      </script>
+        {% endfor %}
+      </ul>
+      {% endif %}
+  
+    </div></div>
+  
+  </div>
+  
+<div class="container courselist">
+    <h2>Here is your schedule</h2>
+    
+    <div class="row">
+
+        <div class="col">
+            {% if scheduled_courses_list %}
+            <table class="table table-striped table-hover table-secondary table-bordered">
+                <thead class="table-dark ">
+                  <tr class="">
+                    <th scope="col">Section</th>
+                    <th scope="col">Course Code</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Instructor</th>
+                    <th scope="col">Meeting Date/Time</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for course in scheduled_courses_list %}
+                    <tr>
+                    <th >{{course.section}}</th>
+                    <td>{{course.subject}} {{ course.course_cat }}</td>
+                    <td>{{course.course_name}}</td>
+                    <td>{{course.instructor_name}}</td>
+                    <td>{{course.meeting_days}}: {{course.start_time}}-{{course.end_time}}</td>
+                    <td>{{course.location}}</td>
+                    <td>
+                      <form action="{% url 'delete_schedule2' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-secondary btn-dark btn-sm" type  = "submit"  name="course_choice" id="course_choice" value="{{course.id}}" >Delete Course</button>
+                      </form>
+                    
+                    </td>
+                    
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <p1>
+                You have no scheduled courses
+              </p1>
+              {% endif %}
+        </div>
+
+    </div>
+    
+  <h2 style="text-align:left">Comments:</h2>
+    <div class="row"><div class="col">
+      {% if comments_received %}
+      {% for comment in comments_received %}
+      <div class="card p-3">
+    
+        <div class="d-flex justify-content-between align-items-center">
+    
+      <div class="user d-flex flex-row align-items-center">
+    
+        <img src="https://i.imgur.com/WUGxiYh.jpeg" width="30" class="user-img rounded-circle mr-2">
+        <span><small class="font-weight-bold text-primary">{{comment.author}}</small> <small class="font-weight-bold">{{comment.comment}}</small></span>
+          
+      </div>
+    
+    
+      <small>{{comment.date}}</small>
+    
+      </div>
+    
+    
+      <div class="action d-flex justify-content-between mt-2 align-items-center">
+    
+        <div class="reply px-4">
+            <small><form action="{% url 'del_comment' owner=user.username%}" method="post">
+              {% csrf_token %}
+              <button class="btn btn-secondary btn-dark btn-sm" type  = "submit"  name="comment_choice" id="comment_choice" value="{{comment.id}}" >Delete Comment</button>
+            </form></small>
+            
+           
+        </div>
+    
+        
+      </div>
+    
+      
+        
+      </div>
+      {% endfor %}
+      {% else %}
+        <p1>There are no comments :(</p1><br>
+        <br>
+      
+        {%endif%}
+
+
+    </div></div>
+
+</div>
+
+{% endblock %}
